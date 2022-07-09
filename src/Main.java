@@ -1,14 +1,14 @@
 import java.util.Scanner;
 
 public class Main {
-    public static char printHangmanImage(int lives) {
-       if (lives == 4) {
-           System.out.println("   _____  ");
-           System.out.println("  |     | ");
-           System.out.println("  |       ");
-           System.out.println("  |       ");
-           System.out.println("__|__     ");
-       }
+    public static char printHangmanImage(byte lives) {
+        if (lives == 4) {
+            System.out.println("   _____  ");
+            System.out.println("  |       ");
+            System.out.println("  |       ");
+            System.out.println("  |       ");
+            System.out.println("__|__     ");
+        }
         if (lives == 3) {
             System.out.println("   _____ ");
             System.out.println("  |    () ");
@@ -34,11 +34,12 @@ public class Main {
             System.out.println("   _____  ");
             System.out.println("  |     () ");
             System.out.println("  |    /|\\ ");
-            System.out.println("  |     /\\");
-            System.out.println("__|__       ");
+            System.out.println("  |    / \\");
+            System.out.println("__|__ ");
         }
         return (char) lives;
     }
+
     public static void main(String[] args) {
         System.out.println("Starting game !");
         String[] words = new String[]{"Popovo", "Yambol", "Asenovgrad", "Silistra", "Pleven", "Sandanski", "Burgas", "Svishtov"};
@@ -83,8 +84,8 @@ public class Main {
             }
             System.out.println();
             notUsed = notUsed.replace(letter, '.');
-            System.out.println("Not used : " + notUsed);
-            printHangmanImage(lives);
+            System.out.println("Alphabet : " + notUsed);
+            printHangmanImage((byte) lives);
             if (isGameFinished) {
                 System.out.println("You won!");
                 break;
